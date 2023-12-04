@@ -1,0 +1,13 @@
+.formRegister input{
+    background: none;
+    /* outline quita el borde blanco y azul */
+    outline: 0; 
+    border: none;
+    margin: 1rem;
+    width:50%;
+    padding: 0.625rem 1.25rem;
+    font-size: 1rem;
+    border-radius: 624.938rem;
+    box-shadow: inset 0.125rem 0.313rem 0.625rem rgb(5, 5, 5);
+    color: #fff;
+}

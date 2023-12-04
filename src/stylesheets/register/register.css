@@ -1,0 +1,42 @@
+.divRegister{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 1rem;
+}
+.formRegister div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.formRegister{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    background-color: #7CB7F8;
+    box-shadow: 1px 7px 38px 5px rgba(0,0,0,0.82);
+    -webkit-box-shadow: 1px 7px 38px 5px rgba(0,0,0,0.82);
+    -moz-box-shadow: 1px 7px 38px 5px rgba(0,0,0,0.82);
+    margin: 0 auto;
+    padding: 1rem;
+    width: 35vw;
+    height: 60vh;
+    border: 1px solid black;
+}
+
+.formRegister label{
+    margin: 0 auto;
+    padding: 0.1rem;
+    font-family: inherit;
+    font-size: inherit;
+    letter-spacing: 0.05rem;
+    text-align: center;
+    font-size: 1.5rem;
+    width: 100%;    
+}
