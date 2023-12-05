@@ -1,20 +1,29 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import { AuthProvider } from "./context/authContext.jsx";
+import { AuthProvider } from "./context/AuthContext.jsx";
 
 import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
+import ProductsPage from './pages/ProductsPage.jsx';
+import ProductFormPage from './pages/ProductFormPage.jsx';
+import CrudPage from './pages/CrudPage.jsx';
+import HomePage from './pages/HomePage.jsx';
+import ProtectedRoute from './ProtectedRoute.jsx';
 
 const App = () => {
   return (
     <AuthProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<h1>Home Page</h1>} />
+          <Route path="/" element={<HomePage/>} />
           <Route path="/login" element={<LoginPage/>} />
           <Route path="/register" element={<RegisterPage/>} />
-          <Route path="/products" element={<h1>Products</h1>} />
-          <Route path="/add-product" element={<h1>ADD PRODUCT</h1>} />
-          <Route path="/crud" element={<h1>MP Repuestos</h1>} />
+          {/* Rutas privadas */}
+          <Route element={<ProtectedRoute/>}>
+            <Route path="/products" element={<ProductsPage/>} />
+            <Route path="/add-product" element={<ProductFormPage/>} />
+            <Route path="/product/:id" element={<ProductFormPage/>} />
+            <Route path="/crud" element={<CrudPage/>} />
+          </Route>
         </Routes>
       </BrowserRouter> 
     </AuthProvider>

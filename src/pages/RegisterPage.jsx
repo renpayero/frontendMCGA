@@ -4,7 +4,7 @@ import '../stylesheets/register/register.css';
 import "../stylesheets/register/input.css";
 import "../stylesheets/register/button.css";
 import "../api/auth.js";
-import { useAuth } from '../context/authContext.jsx';
+import { useAuth } from '../context/AuthContext.jsx';
 import { useNavigate, Link } from "react-router-dom";
 
 const RegisterPage = () => {
