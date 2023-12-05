@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { registerRequest, loginRequest, verifyTokenRequest } from '../api/auth.js';
 import Cookies from "js-cookie";
+import { set } from 'react-hook-form';
 
 //Crea un contexto para compartirlo entre los componentes de la app
 export const AuthContext = createContext();
@@ -18,6 +19,7 @@ export const AuthProvider = ({children}) => {
   const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [errors, setErrors] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   //Recibe un usuario y llama a la funcion en api/auth.js para mandar al back el nuevo usuario a registrar.
   const signup = async (user) => {
@@ -58,20 +60,32 @@ export const AuthProvider = ({children}) => {
 
   //Apenas se carga el componente se buscan las cookies y se mandan al back para verificar que estemos teniendo el token valido y podemos acceder a las rutas privadas
   useEffect(() => {
-    const checkLogin = async () => {
-      const cookies = Cookies.get();
-      if (cookies.token) {
-        try {
-          const res = await verifyTokenRequest(cookies.token);
+    const checkLogin = async () => { //Funcion asincrona para poder usar await
+      const cookies = Cookies.get(); //Busca las cookies en el navegador
 
-          if (!res.data) {
-          return setIsAuthenticated(false);
-          }
-          setIsAuthenticated(true);
-        } catch (error) {
-          setIsAuthenticated(false);
-          setUser(null);
+      if (!cookies.token) { //Si no hay token en las cookies, no está autenticado
+        setIsAuthenticated(false); //establecemos el estado de autenticación en false
+        setLoading(false); //establecemos el estado de loading en false
+        return;
+      }
+
+      try {
+        const res = await verifyTokenRequest(cookies.token); //Si hay token en las cookies, se manda al back para verificar que sea valido
+        if (!res.data) {  //Si no es valido, no está autenticado
+          setIsAuthenticated(false); 
+          setLoading(false); //ya no esta cargando porque ya se verifico que no hay token
+          return;
         }
+        setIsAuthenticated(true);
+        setUser(res.data);
+        setLoading(false); //establace el estado de loading 
+        //en false porque ya paso las validaciones y permitimos
+        // que cargue la pagina
+      } catch (error) {
+        // console.log(error)
+        setIsAuthenticated(false);
+        setUser(null);
+        setLoading(false);
       }
     }
     checkLogin();
@@ -79,7 +93,15 @@ export const AuthProvider = ({children}) => {
   
 
   return (
-    <AuthContext.Provider value={{ signup, signin, user, isAuthenticated, errors }}>
+    <AuthContext.Provider 
+    value={{ 
+      signup,
+      signin,
+      loading ,
+      user,
+      isAuthenticated,
+      errors,
+      }}>
       { children }
     </AuthContext.Provider>
   )
