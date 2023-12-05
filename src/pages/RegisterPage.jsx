@@ -1,11 +1,11 @@
-import { useEffect } from 'react'
-import { useForm } from 'react-hook-form'
-import '../stylesheets/register/register.css'
-import "../stylesheets/register/input.css"
-import "../stylesheets/register/button.css"
-import "../api/auth.js"
+import { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import '../stylesheets/register/register.css';
+import "../stylesheets/register/input.css";
+import "../stylesheets/register/button.css";
+import "../api/auth.js";
 import { useAuth } from '../context/authContext.jsx';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const RegisterPage = () => {
 
@@ -33,22 +33,23 @@ const RegisterPage = () => {
       }
         <div>
           <label htmlFor="username">Nombre de usuario</label>
-          <input type="text" {...register('username', {required: true})}/>
           {errors.username && <p className='errorsInputs'>Nombre de usuario es requerido</p>}
+          <input type="text" {...register('username', {required: true})}/>
         </div>
         <div>
           <label htmlFor="email">Email</label>
-          <input type="email" {...register("email", {required:true})} />
           {errors.email && <p className='errorsInputs'>Email es requerido</p>}
+          <input type="email" {...register("email", {required:true})} />
         </div>
         <div>
           <label htmlFor="password">Contraseña</label>
-          <input type="password" {...register("password", {required: true})} />
           {errors.password && <p className='errorsInputs'>contraseña es requerida</p>}
+          <input type="password" {...register("password", {required: true})} />
         </div>
         <button type='sumbit'>
           <span>Registrarse</span>
         </button>
+        <p>¿Ya tienes una cuenta? <Link to="/login">Iniciar sesión</Link></p>
       </form>
     </div>
   )

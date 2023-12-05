@@ -1,10 +1,9 @@
 .formRegister input{
     background: none;
-    /* outline quita el borde blanco y azul */
-    outline: 0; 
+    outline: 0; /* outline quita el borde blanco y azul */
     border: none;
     margin: 1rem;
-    width:50%;
+    width:60%;
     padding: 0.625rem 1.25rem;
     font-size: 1rem;
     border-radius: 624.938rem;
