@@ -19,7 +19,6 @@ const RegisterPage = () => {
       navigate("/products");
     }
   }, [isAuthenticated])
-  
 
   const onSubmit = handleSubmit(async values => {
     signup(values); //Funcion que se ejecuta en el context
@@ -46,7 +45,7 @@ const RegisterPage = () => {
           {errors.password && <p className='errorsInputs'>contraseña es requerida</p>}
           <input type="password" {...register("password", {required: true})} />
         </div>
-        <button type='sumbit'>
+        <button className='btnForm' type='sumbit'>
           <span>Registrarse</span>
         </button>
         <p>¿Ya tienes una cuenta? <Link to="/login">Iniciar sesión</Link></p>

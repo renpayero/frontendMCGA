@@ -8,24 +8,27 @@ import ProductFormPage from './pages/ProductFormPage.jsx';
 import CrudPage from './pages/CrudPage.jsx';
 import HomePage from './pages/HomePage.jsx';
 import ProtectedRoute from './ProtectedRoute.jsx';
+import { ProductsProvider } from './context/ProductsContext.jsx';
 
 const App = () => {
   return (
     <AuthProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage/>} />
-          <Route path="/login" element={<LoginPage/>} />
-          <Route path="/register" element={<RegisterPage/>} />
-          {/* Rutas privadas */}
-          <Route element={<ProtectedRoute/>}>
-            <Route path="/products" element={<ProductsPage/>} />
-            <Route path="/add-product" element={<ProductFormPage/>} />
-            <Route path="/product/:id" element={<ProductFormPage/>} />
-            <Route path="/crud" element={<CrudPage/>} />
-          </Route>
-        </Routes>
-      </BrowserRouter> 
+      <ProductsProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<HomePage/>} />
+            <Route path="/login" element={<LoginPage/>} />
+            <Route path="/register" element={<RegisterPage/>} />
+            {/* Rutas privadas */}
+            <Route element={<ProtectedRoute/>}>
+              <Route path="/products" element={<ProductsPage/>} />
+              <Route path="/add-product" element={<ProductFormPage/>} />
+              <Route path="/product/:id" element={<ProductFormPage/>} />
+              <Route path="/crud" element={<CrudPage/>} />
+            </Route>
+          </Routes>
+        </BrowserRouter> 
+      </ProductsProvider>
     </AuthProvider>
   )
 }
