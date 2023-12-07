@@ -30,11 +30,25 @@ export function ProductsProvider({ children }) {
         console.log(res);
     }
 
+    const deleteProduct = async (id) => {
+        try {
+            const res = await deleteProductRequest(id);
+            if (res.status === 200) {
+                const filterProducts = products.filter( product => product._id !== id) //Devuelve todos los productos menos el que mandamos al back a eliminar
+                setProducts(filterProducts);
+            }
+            console.log(res)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return <ProductsContext.Provider 
     value={{
         products,
         createProduct,
         getProducts,
+        deleteProduct
     }}
     >{children}
     </ProductsContext.Provider>;

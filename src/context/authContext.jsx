@@ -48,6 +48,12 @@ export const AuthProvider = ({children}) => {
     }
   }
 
+  const logout = () => {
+    Cookies.remove("token");
+    setIsAuthenticated(false);
+    setUser(null);
+  }
+
   //Si se muestra un error en el HTML se borra desp de 4 segundos del html.
   useEffect(() => {
     if (errors.length > 0) {
@@ -101,6 +107,7 @@ export const AuthProvider = ({children}) => {
       user,
       isAuthenticated,
       errors,
+      logout
       }}>
       { children }
     </AuthContext.Provider>

@@ -10,6 +10,7 @@ import HomePage from './pages/HomePage.jsx';
 import ProtectedRoute from './ProtectedRoute.jsx';
 import { ProductsProvider } from './context/ProductsContext.jsx';
 import Navbar from './components/Navbar.jsx';
+import "./index.css"
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
       <ProductsProvider>
         <BrowserRouter>
         <Navbar/>
+        <main>
           <Routes>
             <Route path="/" element={<HomePage/>} />
             <Route path="/login" element={<LoginPage/>} />
@@ -29,6 +31,7 @@ const App = () => {
               <Route path="/crud" element={<CrudPage/>} />
             </Route>
           </Routes>
+        </main>
         </BrowserRouter> 
       </ProductsProvider>
     </AuthProvider>
