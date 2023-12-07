@@ -1,8 +1,13 @@
 import React from "react";
 import { useProducts } from "../context/ProductsContext";
 
-const ProductCard = ({ product, setModal }) => {
+const ProductCard = ({ product, setModal, completForm}) => {
   const { deleteProduct } = useProducts();
+
+  const editProduct = () => {
+    completForm(product);
+    setModal(true);
+  }
 
   return (
     <div key={product._id} className="productCard">
@@ -11,10 +16,9 @@ const ProductCard = ({ product, setModal }) => {
       <p>{product.stock}</p>
       <p>{product.descripcion}</p>
       <p>{product.categoria}</p>
-      <img src={product.image} alt="" />
       <div>
         <button onClick={() => deleteProduct(product._id)}>Eliminar</button>
-        <button onClick={() => setModal(true)}>Editar</button>
+        <button onClick={editProduct}>Editar</button>
       </div>
     </div>
   );

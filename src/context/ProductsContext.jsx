@@ -42,13 +42,15 @@ export function ProductsProvider({ children }) {
             console.log(error)
         }
     }
+    
+        
 
     return <ProductsContext.Provider 
     value={{
         products,
         createProduct,
         getProducts,
-        deleteProduct
+        deleteProduct,
     }}
     >{children}
     </ProductsContext.Provider>;
