@@ -1,0 +1,38 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+  padding: 1rem 2rem;
+  background-color: #FF0000;
+}
+
+nav a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+nav a:hover {
+  color: #c9c7c7;
+}
+
+nav ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+nav ul li {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+nav h2 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+nav img {
+  height: 100%;
+  border-radius: 0.5rem;
+}

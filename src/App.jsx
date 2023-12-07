@@ -9,12 +9,14 @@ import CrudPage from './pages/CrudPage.jsx';
 import HomePage from './pages/HomePage.jsx';
 import ProtectedRoute from './ProtectedRoute.jsx';
 import { ProductsProvider } from './context/ProductsContext.jsx';
+import Navbar from './components/Navbar.jsx';
 
 const App = () => {
   return (
     <AuthProvider>
       <ProductsProvider>
         <BrowserRouter>
+        <Navbar/>
           <Routes>
             <Route path="/" element={<HomePage/>} />
             <Route path="/login" element={<LoginPage/>} />

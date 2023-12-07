@@ -13,7 +13,7 @@ const ProductFormPage = () => {
 
 
   return (
-    <div>
+    <main>
       <form onSubmit={onSubmit}>
         <div>
           <label htmlFor="">Nombre</label>
@@ -43,7 +43,7 @@ const ProductFormPage = () => {
           <span>Crear producto</span>
         </button>
       </form>
-    </div>
+    </main>
   )
 }
 

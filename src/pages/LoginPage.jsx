@@ -21,7 +21,7 @@ const LoginPage = () => {
   }, [isAuthenticated]) //esta linea es para que se ejecute el useEffect cuando cambia el valor de isAuthenticated
 
   return (
-    <div>
+    <div className='divRegister'>
       <form className='formRegister' onSubmit={onSubmit}>
       {
         signinErrors.length > 0 && <div className='errorsBack'>{signinErrors[0]}</div>

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { useProducts } from '../context/ProductsContext';
-
+import "../stylesheets/products/products.css";
 
 const ProductsPage = () => {
   const {getProducts, products} = useProducts();
@@ -15,7 +15,7 @@ const ProductsPage = () => {
   }
 
   return (
-    <div>
+    <div className='mainProducts'>
       {
         products.map(product => (
           <div key={product._id}>
