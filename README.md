@@ -12,33 +12,39 @@
 - "styled-normalize": "^8.1.0"
 
 ## Estructura del proyecto
+```
 frontendMCGA/
- - .eslintrc.cjs
- - .gitignore
- - index.html
- - package.json
- - public/
- - README.md
- - src/
- - - api/
- - - App.jsx
- - - assets/
- - - components/
- - - context/
- - - index.css
- - - main.jsx
- - - pages/
- - - ProtectedRoute.jsx
- - - stylesheets/
- - - - vite.config.js
+    .eslintrc.cjs
+    .gitignore
+    index.html
+    package.json
+    public/
+    README.md
+    src/
+        api/
+        App.jsx
+        assets/
+        components/
+        context/
+        index.css
+        main.jsx
+        pages/
+        ProtectedRoute.jsx
+        stylesheets/
+    vite.config.js 
+```
 
 ## Instalación
 ### Para instalar las dependencias del proyecto, ejecuta el siguiente comando en la raíz del proyecto:
-- npm install
+```
+npm install
+```
 
 ## Ejecución
 ### Para iniciar la aplicación en modo de desarrollo, ejecuta el siguiente comando:
-- npm run dev
+```
+npm run dev
+```
 
 ## Características
 - Autenticación: El proyecto utiliza un sistema de autenticación basado en JWT. Los tokens de autenticación se almacenan en el almacenamiento local del navegador.
