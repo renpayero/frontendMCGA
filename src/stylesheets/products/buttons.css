@@ -75,13 +75,13 @@
 /* BOTON ELIMINAR PRODUCTO */
 .buttonDelete {
   position: relative;
-  width: 150px;
-  height: 40px;
+  width: 9.375rem;
+  height: 2.5rem;
   cursor: pointer;
   display: flex;
   align-items: center;
-  border: 1px solid #cc0000;
-  border-radius: 20px;
+  border: 0.063rem solid #cc0000;
+  border-radius: 1.25rem;
   background-color: #FF0000;
   overflow: hidden;
 }
@@ -89,20 +89,20 @@
 .buttonDelete,
 .button_icon,
 .button_text {
-  transition: all 0.3s;
+  transition: all 0.2s;
 }
 
 .buttonDelete .button__text {
-  transform: translateX(35px);
+  transform: translateX(1.45rem);
   color: #fff;
   font-weight: 600;
 }
 
 .buttonDelete .button__icon {
   position: absolute;
-  transform: translateX(109px);
+  transform: translateX(6rem);
   height: 100%;
-  width: 39px;
+  width: 2.438rem;
   background-color: #cc0000;
   display: flex;
   align-items: center;
@@ -110,7 +110,7 @@
 }
 
 .buttonDelete .svg {
-  width: 20px;
+  width: 1.25rem;
 }
 
 .buttonDelete:hover {
@@ -122,7 +122,7 @@
 }
 
 .buttonDelete:hover .button__icon {
-  width: 148px;
+  width: 8rem;
   transform: translateX(0);
 }
 
@@ -131,7 +131,7 @@
 }
 
 .buttonDelete:active {
-  border: 1px solid #FF0000;
+  border: 0.063rem solid #FF0000;
 }
 
 /* BOTON EDITAR PRODUCTO */
@@ -139,22 +139,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 8px 12px;
-  gap: 2px;
-  width: 150px;
-  height: 40px;
+  padding: 0.5rem 0.75rem;
+  gap: 0.125rem;
+  width: 9.375rem;
+  height: 2.5rem;
   border: none;
   background: #46046d3d;
-  border-radius: 20px;
+  border-radius: 1.25rem;
   cursor: pointer;
 }
 
 .lable {
-  line-height: 22px;
-  font-size: 19px;
+  line-height: 1.375rem;
+  font-size: 1.188rem;
   color: #4d0675;
   font-family: sans-serif;
-  letter-spacing: 1px;
+  letter-spacing: 0.063rem;
 }
 
 .buttoneEdit:hover {

@@ -5,6 +5,7 @@ import "../stylesheets/form/form.css";
 import "../stylesheets/form/button.css";
 import "../stylesheets/form/input.css";
 import "../stylesheets/form/errors.css";
+import Title from "../components/Title";
 import { ToastContainer } from "react-toastify";
 
 const ProductFormPage = () => {
@@ -23,7 +24,7 @@ const ProductFormPage = () => {
 
   return (
     <section>
-      <h1>Agregar productos</h1>
+      <Title word1="AGREGAR" word2="PRODUCTO"></Title>
       <div className="divForm">
         <form className="form" onSubmit={onSubmit}>
           <div>

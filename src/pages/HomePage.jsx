@@ -3,6 +3,7 @@ import { useProducts } from '../context/ProductsContext';
 import "../stylesheets/products/products.css";
 import "../stylesheets/products/productCard.css";
 import ProductCard from "../components/ProductCard";
+import Title from "../components/Title";
 
 const HomePage = () => {
   const { getProducts, products } = useProducts();
@@ -14,7 +15,7 @@ const HomePage = () => {
 
   return (
     <section className="homePage">
-      <h1>Bienvenido a MP Repuestos</h1>
+      <Title word1="MP" word2="REPUESTOS" />
       <div className="mainProducts">
       {
         products.map(product => (
