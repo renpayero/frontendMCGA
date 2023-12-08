@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import '../stylesheets/register/register.css';
-import "../stylesheets/register/input.css";
-import "../stylesheets/register/button.css";
+import '../stylesheets/form/form.css';
+import "../stylesheets/form/button.css";
+import "../stylesheets/form/input.css";
+import "../stylesheets/form/errors.css";
 import "../api/auth.js";
 import { useAuth } from '../context/AuthContext.jsx';
 import { useNavigate, Link } from "react-router-dom";
@@ -25,8 +26,8 @@ const RegisterPage = () => {
   })
 
   return (
-    <div className='divRegister'>
-      <form className='formRegister' onSubmit={onSubmit}>
+    <div className='divForm'>
+      <form className='form' onSubmit={onSubmit}>
       {
         registerErrors.length > 0 && <div className='errorsBack'>{registerErrors[0]}</div>
       }

@@ -12,6 +12,7 @@ const ProductsPage = () => {
   const { getProducts, products, updateProduct } = useProducts();
   const { register, handleSubmit, setValue } = useForm();
   const [modal, setModal] = useState(false);
+  const [mostrarFooter, setMostrarFooter] = useState(true); //hace que no se muestren los botones de la card en este componente y si en el de la ruta privada.
 
   //esta variable se usa para guardar el producto que se va a editar, y luego se pasa como parametro a la funcion completForm
   const onSubmit = handleSubmit(product => {
@@ -40,6 +41,8 @@ const ProductsPage = () => {
   }
 
   return (
+    <section>
+    <h1>Página de productos</h1>
     <div className='mainProducts'>
       {
         modal && (
@@ -79,11 +82,12 @@ const ProductsPage = () => {
       }
       {
         products.map(product => (
-          <ProductCard completForm={completForm} product={product} setModal={setModal} key={product._id} />
+          <ProductCard mostrarFooter={mostrarFooter} completForm={completForm} product={product} setModal={setModal} key={product._id} />
         )
         )
       }
-    </div>
+      </div>
+    </section>
   )
 }
 

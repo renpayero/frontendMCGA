@@ -1,0 +1,20 @@
+.errorsInputs{
+  color: #ff0000;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.errorsBack{
+  display: flex;
+  justify-content: center;
+  min-height: 2rem;
+  max-width: 80%;
+  margin: 0;
+  padding: 1rem;
+  border-radius: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: #ef1c1c;
+  color: #ffffff;
+}

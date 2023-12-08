@@ -6,3 +6,11 @@ body{
 main {
   margin: 0rem 2rem;
 }
+
+h1 {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  font-size: 4rem;
+  font-weight: bold;
+}

@@ -2,6 +2,10 @@ import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
+import "../stylesheets/form/form.css";
+import "../stylesheets/form/button.css";
+import "../stylesheets/form/input.css";
+import "../stylesheets/form/errors.css";
 
 
 const LoginPage = () => {
@@ -21,8 +25,8 @@ const LoginPage = () => {
   }, [isAuthenticated]) //esta linea es para que se ejecute el useEffect cuando cambia el valor de isAuthenticated
 
   return (
-    <div className='divRegister'>
-      <form className='formRegister' onSubmit={onSubmit}>
+    <div className='divForm'>
+      <form className='form' onSubmit={onSubmit}>
       {
         signinErrors.length > 0 && <div className='errorsBack'>{signinErrors[0]}</div>
       }

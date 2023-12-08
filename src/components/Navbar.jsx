@@ -8,12 +8,12 @@ const Navbar = () => {
   return (
     <nav>
       <Link to="/" className="link-img"><img src="../../public/logo.png" alt="Logo"></img></Link>
-      <h2><Link to="/products">Productos</Link></h2>
       <ul>
       {
         isAuthenticated ? (
           <>
           <li>Bienvenido {user.username}</li>
+          <li><Link to="/products">Productos</Link></li>
           <li><Link to="/add-product">Agregar producto </Link></li>
           <li><Link to="/" onClick={() => logout()}>Cerrar sesión</Link></li>
           </>

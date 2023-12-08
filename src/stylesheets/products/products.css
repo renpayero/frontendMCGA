@@ -11,5 +11,5 @@
   border-radius: 1rem;
   background-color: #7CB7F8;
   border-radius: 1rem;
-  box-shadow: 0 0 5rem rgba(0, 0, 0, 0.3); /* Ajusta el desenfoque y el color según sea necesario */
+  box-shadow: 0 0 5rem #0000004d; /* Ajusta el desenfoque y el color según sea necesario */
 }
