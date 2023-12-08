@@ -1,0 +1,47 @@
+/* Esta clase es de ProductCard */
+.productCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 1rem;
+    height: 10%;
+    background-color: #5d5d5d;
+    overflow: hidden;
+    /* SE puede poner max-width y max-height para que quede responsive */
+  }
+  .productCard header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: #3b3939;
+  }
+  
+  .productCard article {
+    display: flex; 
+    flex-direction: column;
+    align-items: flex-start;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 1rem;
+  }
+  
+  .productCard article p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 1rem;
+  }
+  
+  .productCard article span {
+    font-weight: normal;
+    font-size: 1.1rem;
+  }
+  
+  .productCard footer {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: grey;
+    padding: 10px;
+  }
