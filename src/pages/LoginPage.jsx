@@ -7,6 +7,9 @@ import "../stylesheets/form/button.css";
 import "../stylesheets/form/input.css";
 import "../stylesheets/form/errors.css";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 const LoginPage = () => {
   const { register, handleSubmit, formState:{errors} } = useForm();
@@ -46,6 +49,18 @@ const LoginPage = () => {
         </button>
       <p>¿No tienes una cuenta aún? <Link to="/register">Regístrate</Link></p>
       </form>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </div>
   )
 }
