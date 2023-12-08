@@ -11,7 +11,6 @@ const ProductFormPage = () => {
     createProduct(data);
   })
 
-
   return (
     <div>
       <form onSubmit={onSubmit}>

@@ -1,32 +1,42 @@
 import React, { useEffect, useState } from 'react'
 import { useProducts } from '../context/ProductsContext';
-import "../stylesheets/products/products.css";
 import ProductCard from '../components/ProductCard';
 import { useForm } from "react-hook-form";
-import "../stylesheets/products/btnClose.css";
+import { Link } from 'react-router-dom';
+import "../stylesheets/products/products.css";
+import "../stylesheets/products/buttons.css";
+import "../stylesheets/products/modalEdit.css";
+import "../stylesheets/products/productCard.css";
 
 const ProductsPage = () => {
-  const { getProducts, products } = useProducts();
+  const { getProducts, products, updateProduct } = useProducts();
   const { register, handleSubmit, setValue } = useForm();
   const [modal, setModal] = useState(false);
 
-  const onSubmit = () => {
-    console.log("first")
-  }
+  //esta variable se usa para guardar el producto que se va a editar, y luego se pasa como parametro a la funcion completForm
+  const onSubmit = handleSubmit(product => {
+    updateProduct(product._id, product); //el id del producto se pasa como parametro para saber que producto se va a editar
+    setModal(false)
+  })
+
+
+  // esta funcion se ejecuta cuando se hace click en el boton editar de un producto, y se encarga de completar el form del modal con los datos del producto
   const completForm = (product) => {
     setValue("nombre", product.nombre);
     setValue("precio", product.precio);
     setValue("stock", product.stock);
     setValue("descripcion", product.descripcion);
     setValue("categoria", product.categoria);
+    setValue("_id", product._id);
   }
+  
   
   useEffect(() => {
     getProducts();
   }, [])
 
   if (products.length === 0) {
-    return <h1>No hay productos flaquito</h1> //!ACOMODAR ESTO DESPUES
+    return <h1>No hay productos, cree productos en <Link to="/add-product">AGREGAR PRODUCTOS</Link></h1>
   }
 
   return (
