@@ -1,6 +1,9 @@
 import React from "react";
 import { useProducts } from "../context/ProductsContext";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const ProductCard = ({ product, setModal, completForm, mostrarFooter }) => {
   const { _id, nombre, precio, descripcion, stock, categoria } = product;
   const { deleteProduct } = useProducts();
@@ -9,6 +12,10 @@ const ProductCard = ({ product, setModal, completForm, mostrarFooter }) => {
     completForm(product);
     setModal(true);
   };
+
+  const handleDelete = (_id) => {
+    deleteProduct(_id);
+  }
 
   return (
     <div key={product._id} className="productCard">
@@ -36,7 +43,7 @@ const ProductCard = ({ product, setModal, completForm, mostrarFooter }) => {
         <footer>
           <button
             className="buttonDelete"
-            onClick={() => deleteProduct(product._id)}
+            onClick={() => handleDelete(_id)}
             type="button"
           >
             <span className="button__text">Eliminar</span>
