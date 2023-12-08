@@ -9,16 +9,19 @@ import "../stylesheets/products/modalEdit.css";
 import "../stylesheets/products/productCard.css";
 import Title from '../components/Title';
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const ProductsPage = () => {
   const { getProducts, products, updateProduct } = useProducts();
   const { register, handleSubmit, setValue } = useForm();
   const [modal, setModal] = useState(false);
-  const [mostrarFooter, setMostrarFooter] = useState(true); //hace que no se muestren los botones de la card en este componente y si en el de la ruta privada.
+  const [mostrarFooter, setMostrarFooter] = useState(true); //hace que no se muestren los botones(eliminar,editar) de la card en este componente y si en el de la ruta privada.
 
   //esta variable se usa para guardar el producto que se va a editar, y luego se pasa como parametro a la funcion completForm
   const onSubmit = handleSubmit(product => {
     updateProduct(product._id, product); //el id del producto se pasa como parametro para saber que producto se va a editar
-    setModal(false)
+    setModal(false);
   })
 
 
@@ -88,6 +91,18 @@ const ProductsPage = () => {
           )
         }
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </section>
   )
 }

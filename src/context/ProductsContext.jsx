@@ -1,5 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import { createProductRequest, getProductsRequest, updateProductRequest, deleteProductRequest, getProductRequest } from "../api/products.js";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ProductsContext = createContext();
 
@@ -19,15 +21,18 @@ export function ProductsProvider({ children }) {
             const res = await getProductsRequest();
             setProducts(res.data);
         } catch (error) {
-            console.log(error);
+            notify("error", error.response.data.message);
         }
     }
     const createProduct = async (product) => {
-        // necesito pasar el precio y stock de string a number antes de enviarlo al backend
-        product.precio = Number(product.precio);
-        product.stock = Number(product.stock);
-        const res = await createProductRequest(product);
-        console.log(res);
+        try {
+            product.precio = Number(product.precio);
+            product.stock = Number(product.stock);
+            const res = await createProductRequest(product);
+            notify("success", "Producto creado correctamente");
+        } catch (error) {
+            notify("error", error.response.data.message);
+        }
     }
 
     const deleteProduct = async (id) => {
@@ -36,10 +41,11 @@ export function ProductsProvider({ children }) {
             if (res.status === 200) {
                 const filterProducts = products.filter(product => product._id !== id) //Devuelve todos los productos menos el que mandamos al back a eliminar
                 setProducts(filterProducts);
+                return notify("success", "Producto eliminado correctamente");
             }
-            console.log(res)
         } catch (error) {
-            console.log(error)
+            console.log(error.response.data.message)
+            return notify("error", error.response.data.message);
         }
     }
 
@@ -50,11 +56,24 @@ export function ProductsProvider({ children }) {
             const productsUpdated = products.map(product => product._id === productUpdate._id ? productUpdate : product);
             console.log(productsUpdated)
             setProducts(productsUpdated);
+            return notify("success", "Producto actualizado correctamente");
         } catch (error) {
-            console.log(error)
+            return notify("error", error.response.data.message);
         }
 
     }
+
+    //Dependiendo del tipo de notificacion que le pasamos muestra un una u otra, de de error o de success.
+    const notify = (tipo, mensaje) => {
+        console.log(tipo)
+        if (tipo === "success") {
+          toast.success(mensaje)
+        }
+    
+        if (tipo === "error") {
+          toast.error(mensaje)
+        }
+      }
 
     return <ProductsContext.Provider
         value={{

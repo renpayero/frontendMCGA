@@ -1,7 +1,8 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { registerRequest, loginRequest, verifyTokenRequest } from '../api/auth.js';
 import Cookies from "js-cookie";
-import { set } from 'react-hook-form';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 //Crea un contexto para compartirlo entre los componentes de la app
 export const AuthContext = createContext();
@@ -29,8 +30,11 @@ export const AuthProvider = ({children}) => {
       setUser(res.data);
       setIsAuthenticated(true);
     } catch (error) {
-      // console.log(error.response.data)
-      setErrors(error.response.data)
+      if (Array.isArray(error.response.data)) {
+        console.log(error)
+        return notify("error", error.response.data[0]);
+      }
+      return notify("error",error.response.data.message);
     }
   }
 
@@ -42,9 +46,9 @@ export const AuthProvider = ({children}) => {
     } catch (error) {
       //Hay errores que se devuelven en objetos y otros como arrays, entonces transformamos todo a array, porque el useState errors es un array
       if (Array.isArray(error.response.data)) {
-        return setErrors(error.response.data);
+        return notify("error", error.response.data[0]);
       }
-      setErrors([error.response.data.message]);
+      return notify("error",error.response.data.message);
     }
   }
 
@@ -84,11 +88,10 @@ export const AuthProvider = ({children}) => {
         }
         setIsAuthenticated(true);
         setUser(res.data);
-        setLoading(false); //establace el estado de loading 
+        return setLoading(false); //establace el estado de loading 
         //en false porque ya paso las validaciones y permitimos
         // que cargue la pagina
       } catch (error) {
-        // console.log(error)
         setIsAuthenticated(false);
         setUser(null);
         setLoading(false);
@@ -96,6 +99,18 @@ export const AuthProvider = ({children}) => {
     }
     checkLogin();
   }, [])
+
+      //Dependiendo del tipo de notificacion que le pasamos muestra un una u otra, de de error o de success.
+      const notify = (tipo, mensaje) => {
+        console.log(tipo)
+        if (tipo === "success") {
+          toast.success(mensaje)
+        }
+    
+        if (tipo === "error") {
+          toast.error(mensaje)
+        }
+      }
   
 
   return (

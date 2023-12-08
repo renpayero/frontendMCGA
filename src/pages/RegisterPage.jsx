@@ -8,6 +8,8 @@ import "../api/auth.js";
 import { useAuth } from '../context/AuthContext.jsx';
 import { useNavigate, Link } from "react-router-dom";
 import Title from '../components/Title.jsx';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const RegisterPage = () => {
 
@@ -55,6 +57,18 @@ const RegisterPage = () => {
         <p>¿Ya tienes una cuenta? <Link to="/login">Iniciar sesión</Link></p>
       </form>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </div>
   )
 }

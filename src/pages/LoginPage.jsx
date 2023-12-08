@@ -7,6 +7,8 @@ import "../stylesheets/form/button.css";
 import "../stylesheets/form/input.css";
 import "../stylesheets/form/errors.css";
 import Title from "../components/Title";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 const LoginPage = () => {
@@ -50,6 +52,18 @@ const LoginPage = () => {
       <p>¿No tienes una cuenta aún? <Link to="/register">Regístrate</Link></p>
       </form>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </div>
   )
 }
