@@ -35,13 +35,13 @@ frontendMCGA/
 ```
 
 ## Instalación
-### Para instalar las dependencias del proyecto, ejecuta el siguiente comando en la raíz del proyecto:
+- Para instalar las dependencias del proyecto, ejecuta el siguiente comando en la raíz del proyecto:
 ```
 npm install
 ```
 
 ## Ejecución
-### Para iniciar la aplicación en modo de desarrollo, ejecuta el siguiente comando:
+- Para iniciar la aplicación en modo de desarrollo, ejecuta el siguiente comando:
 ```
 npm run dev
 ```
@@ -58,7 +58,7 @@ npm run dev
 - ProductsContext.jsx: Este archivo define el contexto de los productos, que se utiliza para manejar el estado global de los productos.
 
 ## API
-### La carpeta api/ contiene los archivos que se utilizan para interactuar con la API del backend. Aquí es donde se configuran las instancias de axios y se definen las funciones para hacer solicitudes a la API.
+- La carpeta `api/` contiene los archivos que se utilizan para interactuar con la API del backend. Aquí es donde se configuran las instancias de axios y se definen las funciones para hacer solicitudes a la API.
 
 ## Estilos
-### Los estilos de la aplicación se definen en la carpeta stylesheets/. Aquí es donde puedes encontrar todos los archivos CSS que se utilizan en la aplicación.
+- Los estilos de la aplicación se definen en la carpeta `stylesheets/.` Aquí es donde puedes encontrar todos los archivos CSS que se utilizan en la aplicación.
