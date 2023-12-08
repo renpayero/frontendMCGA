@@ -7,6 +7,7 @@ import "../stylesheets/products/products.css";
 import "../stylesheets/products/buttons.css";
 import "../stylesheets/products/modalEdit.css";
 import "../stylesheets/products/productCard.css";
+import Title from '../components/Title';
 
 const ProductsPage = () => {
   const { getProducts, products, updateProduct } = useProducts();
@@ -30,8 +31,8 @@ const ProductsPage = () => {
     setValue("categoria", product.categoria);
     setValue("_id", product._id);
   }
-  
-  
+
+
   useEffect(() => {
     getProducts();
   }, [])
@@ -42,50 +43,50 @@ const ProductsPage = () => {
 
   return (
     <section>
-    <h1>Página de productos</h1>
-    <div className='mainProducts'>
-      {
-        modal && (
-          <div className='divModal'>
-            <form className='modalForm' onSubmit={onSubmit}>
-              <button type='button' onClick={() => setModal(false)} className="button">
-                <span className="X"></span>
-                <span className="Y"></span>
-                <div className="close">Close</div>
-              </button>
-              <div>
-                <label htmlFor="">Nombre</label>
-                <input type="text" {...register("nombre", { required: true })} />
-              </div>
-              <div>
-                <label htmlFor="">Precio</label>
-                <input type="number" {...register("precio", { required: true })} />
-              </div>
-              <div>
-                <label htmlFor="">Stock</label>
-                <input type="number" {...register("stock", { required: true })} />
-              </div>
-              <div>
-                <label htmlFor="">Descripción</label>
-                <input type="text" {...register("descripcion", { required: true })} />
-              </div>
-              <div>
-                <label htmlFor="">Categoría</label>
-                <input type="text" {...register("categoria", { required: true })} />
-              </div>
-              <button className='btnForm' type='sumbit'>
-                <span>Editar producto</span>
-              </button>
-            </form>
-          </div>
-        )
-      }
-      {
-        products.map(product => (
-          <ProductCard mostrarFooter={mostrarFooter} completForm={completForm} product={product} setModal={setModal} key={product._id} />
-        )
-        )
-      }
+      <Title word1="STOCK" word2="DISPONIBLE" />
+      <div className='mainProducts'>
+        {
+          modal && (
+            <div className='divModal'>
+              <form className='form' onSubmit={onSubmit}>
+                <button type='button' onClick={() => setModal(false)} className="button">
+                  <span className="X"></span>
+                  <span className="Y"></span>
+                  <div className="close">Close</div>
+                </button>
+                <div>
+                  <label htmlFor="">Nombre</label>
+                  <input type="text" {...register("nombre", { required: true })} />
+                </div>
+                <div>
+                  <label htmlFor="">Precio</label>
+                  <input type="number" {...register("precio", { required: true })} />
+                </div>
+                <div>
+                  <label htmlFor="">Stock</label>
+                  <input type="number" {...register("stock", { required: true })} />
+                </div>
+                <div>
+                  <label htmlFor="">Descripción</label>
+                  <input type="text" {...register("descripcion", { required: true })} />
+                </div>
+                <div>
+                  <label htmlFor="">Categoría</label>
+                  <input type="text" {...register("categoria", { required: true })} />
+                </div>
+                <button className='btnForm' type='sumbit'>
+                  <span>Editar producto</span>
+                </button>
+              </form>
+            </div>
+          )
+        }
+        {
+          products.map(product => (
+            <ProductCard mostrarFooter={mostrarFooter} completForm={completForm} product={product} setModal={setModal} key={product._id} />
+          )
+          )
+        }
       </div>
     </section>
   )

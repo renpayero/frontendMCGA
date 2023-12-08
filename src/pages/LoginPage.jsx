@@ -6,6 +6,7 @@ import "../stylesheets/form/form.css";
 import "../stylesheets/form/button.css";
 import "../stylesheets/form/input.css";
 import "../stylesheets/form/errors.css";
+import Title from "../components/Title";
 
 
 const LoginPage = () => {
@@ -26,11 +27,13 @@ const LoginPage = () => {
 
   return (
     <div className='divForm'>
+
+      <div>
+      <Title word1="INICIAR" word2="SESIÓN"></Title>
       <form className='form' onSubmit={onSubmit}>
       {
         signinErrors.length > 0 && <div className='errorsBack'>{signinErrors[0]}</div>
       }
-      <h1>Iniciar sesión</h1>
         <div>
           <label htmlFor="email">Email</label>
           {errors.email && <p className='errorsInputs'>Email es requerido</p>}
@@ -46,6 +49,7 @@ const LoginPage = () => {
         </button>
       <p>¿No tienes una cuenta aún? <Link to="/register">Regístrate</Link></p>
       </form>
+      </div>
     </div>
   )
 }

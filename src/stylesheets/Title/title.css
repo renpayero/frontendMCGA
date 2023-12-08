@@ -1,0 +1,41 @@
+.title-word {
+    animation: color-animation 10s linear infinite;
+  }
+  
+  .title-word-1 {
+    --color-1: #FF0000;
+    --color-2: #0087E4;
+
+  }
+  
+  .title-word-2 {
+    --color-1: #0087E4;
+    --color-2: #FF0000;
+
+  }
+    @keyframes color-animation {
+    0%    {color: var(--color-2)}
+    1%    {color: var(--color-2)}
+    32%   {color: var(--color-1)}
+    33%   {color: var(--color-1)}
+    65%   {color: var(--color-2)}
+    66%   {color: var(--color-2)}
+    99%   {color: var(--color-1)}
+    100%  {color: var(--color-1)}
+  }
+  
+  /* Here are just some visual styles. 🖌 */
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+  
+  .title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    font-size: 3rem;
+    text-transform: uppercase;
+  }

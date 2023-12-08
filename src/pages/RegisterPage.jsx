@@ -7,6 +7,7 @@ import "../stylesheets/form/errors.css";
 import "../api/auth.js";
 import { useAuth } from '../context/AuthContext.jsx';
 import { useNavigate, Link } from "react-router-dom";
+import Title from '../components/Title.jsx';
 
 const RegisterPage = () => {
 
@@ -27,6 +28,8 @@ const RegisterPage = () => {
 
   return (
     <div className='divForm'>
+      <div>
+        <Title word1="REGIS" word2="TRATE"></Title>
       <form className='form' onSubmit={onSubmit}>
       {
         registerErrors.length > 0 && <div className='errorsBack'>{registerErrors[0]}</div>
@@ -51,6 +54,7 @@ const RegisterPage = () => {
         </button>
         <p>¿Ya tienes una cuenta? <Link to="/login">Iniciar sesión</Link></p>
       </form>
+      </div>
     </div>
   )
 }
