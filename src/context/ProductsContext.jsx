@@ -52,7 +52,7 @@ export function ProductsProvider({ children }) {
     const updateProduct = async (id, product) => {
         try {
             const res = await updateProductRequest(id, product);
-            const productUpdate = res.data; 
+            const productUpdate = res.data;
             const productsUpdated = products.map(product => product._id === productUpdate._id ? productUpdate : product);
             console.log(productsUpdated)
             setProducts(productsUpdated);
@@ -67,13 +67,13 @@ export function ProductsProvider({ children }) {
     const notify = (tipo, mensaje) => {
         console.log(tipo)
         if (tipo === "success") {
-          toast.success(mensaje)
+            toast.success(mensaje)
         }
-    
+
         if (tipo === "error") {
-          toast.error(mensaje)
+            toast.error(mensaje)
         }
-      }
+    }
 
     return <ProductsContext.Provider
         value={{

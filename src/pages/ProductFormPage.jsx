@@ -15,7 +15,7 @@ const ProductFormPage = () => {
     reset,
     formState: { errors },
   } = useForm();
-  const { createProduct} = useProducts();
+  const { createProduct } = useProducts();
 
   const onSubmit = handleSubmit((data) => {
     createProduct(data);

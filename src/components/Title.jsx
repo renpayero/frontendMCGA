@@ -1,7 +1,7 @@
 import React from 'react'
 import "../stylesheets/title/title.css";
 
-const Title = ({word1, word2}) => {
+const Title = ({ word1, word2 }) => {
     return (
         <div className="container">
             <h2 className="title">

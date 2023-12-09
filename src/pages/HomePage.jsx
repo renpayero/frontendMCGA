@@ -21,12 +21,12 @@ const HomePage = () => {
     <section className="homePage">
       <Title word1="MP" word2="REPUESTOS" />
       <div className="mainProducts">
-      {
-        products.map(product => (
-          <ProductCard mostrarFooter={mostrarFooter} product={product} key={product._id} />
-        )
-        )
-      }
+        {
+          products.map(product => (
+            <ProductCard mostrarFooter={mostrarFooter} product={product} key={product._id} />
+          )
+          )
+        }
       </div>
     </section>
   );

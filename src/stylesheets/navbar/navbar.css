@@ -4,26 +4,63 @@ nav {
   align-items: center;
   height: 4rem;
   padding: 1rem 2rem;
-  background: rgb(147,147,147);
-background: linear-gradient(0deg, rgba(147,147,147,1) 0%, rgba(255,0,0,1) 25%);
+  background: #939393;
+  background: linear-gradient(0deg, #939393 0%, #ff0000 25%);
+}
+
+.userNav {
+  display: flex;
+  align-items: center;
+}
+
+.iconUserNav {
+  height: 2.5rem;
+  width: 2.5rem;
+  margin-left: 2rem;
+}
+
+.userNameNav {
+  text-align: center;
+  margin-left: 1rem;
+  top: 0.5rem;
+  left: 1rem;
+  font-size: 1.5rem;
 }
 
 nav a {
   text-decoration: none;
   color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  transition: 0.2s ease-in-out;
+  text-shadow: 2px 2px 2px #000000;
 }
 
 nav a:hover {
-  color: #c9c7c7;
+  color: #0087E4;
+}
+
+nav a:hover::after {
+  content: "";
+  width: 30%;
+  height: 3px;
+  background: #0087E4;
+  position: absolute;
+  bottom: -1px;
+  left: 1px;
+  box-shadow: 2px 2px 2px #000000;
 }
 
 nav ul {
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 1rem;
   list-style: none;
 }
 
 nav ul li {
+  position: relative;
   margin: 0;
   font-size: 1.5rem;
 }

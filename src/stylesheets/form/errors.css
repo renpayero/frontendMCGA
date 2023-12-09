@@ -1,11 +1,11 @@
-.errorsInputs{
+.errorsInputs {
   color: #ef1c1c;
   font-weight: bold;
   font-size: 1.2rem;
   margin: 0;
 }
 
-.errorsBack{
+.errorsBack {
   display: flex;
   justify-content: center;
   min-height: 2rem;

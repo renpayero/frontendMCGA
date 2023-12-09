@@ -1,4 +1,4 @@
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from "./context/AuthContext.jsx";
 
 import RegisterPage from './pages/RegisterPage';
@@ -16,20 +16,20 @@ const App = () => {
     <AuthProvider>
       <ProductsProvider>
         <BrowserRouter>
-        <Navbar/>
-        <main>
-          <Routes>
-            <Route path="/" element={<HomePage/>} />
-            <Route path="/login" element={<LoginPage/>} />
-            <Route path="/register" element={<RegisterPage/>} />
-            {/* Rutas privadas */}
-            <Route element={<ProtectedRoute/>}>
-              <Route path="/products" element={<ProductsPage/>} />
-              <Route path="/add-product" element={<ProductFormPage/>} />
-            </Route>
-          </Routes>
-        </main>
-        </BrowserRouter> 
+          <Navbar />
+          <main>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              {/* Rutas privadas */}
+              <Route element={<ProtectedRoute />}>
+                <Route path="/products" element={<ProductsPage />} />
+                <Route path="/add-product" element={<ProductFormPage />} />
+              </Route>
+            </Routes>
+          </main>
+        </BrowserRouter>
       </ProductsProvider>
     </AuthProvider>
   )

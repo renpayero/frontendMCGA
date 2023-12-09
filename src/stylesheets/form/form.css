@@ -1,4 +1,4 @@
-.divForm{
+.divForm {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,7 +7,7 @@
   height: 100%;
 }
 
-.form{
+.form {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -18,14 +18,13 @@
   box-shadow: 1px 7px 38px 5px #000000d1;
   -webkit-box-shadow: 1px 7px 38px 5px #000000d1;
   -moz-box-shadow: 1px 7px 38px 5px #000000d1;
-  margin: 5% auto;
   padding: 1rem;
   min-width: 35vw;
   min-height: 60vh;
   border: 1px solid #000000;
 }
 
-.form div{
+.form div {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,7 +32,7 @@
   width: 100%;
 }
 
-.form label{
+.form label {
   margin: 0 auto;
   padding: 0.1rem;
   font-family: inherit;
@@ -41,5 +40,6 @@
   letter-spacing: 0.05rem;
   text-align: center;
   font-size: 1.5rem;
-  width: 100%;    
+  font-weight: 600;
+  width: 100%;
 }

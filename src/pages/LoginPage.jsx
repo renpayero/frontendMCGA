@@ -12,7 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 
 const LoginPage = () => {
-  const { register, handleSubmit, formState:{errors} } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const { signin, errors: signinErrors, isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
@@ -31,26 +31,26 @@ const LoginPage = () => {
     <div className='divForm'>
 
       <div>
-      <Title word1="INICIAR" word2="SESIÓN"></Title>
-      <form className='form' onSubmit={onSubmit}>
-      {
-        signinErrors.length > 0 && <div className='errorsBack'>{signinErrors[0]}</div>
-      }
-        <div>
-          <label htmlFor="email">Email</label>
-          {errors.email && <p className='errorsInputs'>Email es requerido</p>}
-          <input type="email" {...register("email", {required:true})} />
-        </div>
-        <div>
-          <label htmlFor="password">Contraseña</label>
-          {errors.password && <p className='errorsInputs'>contraseña es requerida</p>}
-          <input type="password" {...register("password", {required: true})} />
-        </div>
-        <button className="btnForm" type='sumbit'>
-          <span>Iniciar sesión</span>
-        </button>
-      <p>¿No tienes una cuenta aún? <Link to="/register">Regístrate</Link></p>
-      </form>
+        <Title word1="INICIAR" word2="SESIÓN"></Title>
+        <form className='form' onSubmit={onSubmit}>
+          {
+            signinErrors.length > 0 && <div className='errorsBack'>{signinErrors[0]}</div>
+          }
+          <div>
+            <label htmlFor="email">Email</label>
+            {errors.email && <p className='errorsInputs'>Email es requerido</p>}
+            <input type="email" {...register("email", { required: true })} />
+          </div>
+          <div>
+            <label htmlFor="password">Contraseña</label>
+            {errors.password && <p className='errorsInputs'>contraseña es requerida</p>}
+            <input type="password" {...register("password", { required: true })} />
+          </div>
+          <button className="btnForm" type='sumbit'>
+            <span>Iniciar sesión</span>
+          </button>
+          <p>¿No tienes una cuenta aún? <Link to="/register">Regístrate</Link></p>
+        </form>
       </div>
       <ToastContainer
         position="top-right"

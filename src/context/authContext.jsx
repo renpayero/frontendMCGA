@@ -16,7 +16,7 @@ export const useAuth = () => {
   return context;
 }
 
-export const AuthProvider = ({children}) => {
+export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [errors, setErrors] = useState([]);
@@ -34,7 +34,7 @@ export const AuthProvider = ({children}) => {
         console.log(error)
         return notify("error", error.response.data[0]);
       }
-      return notify("error",error.response.data.message);
+      return notify("error", error.response.data.message);
     }
   }
 
@@ -48,7 +48,7 @@ export const AuthProvider = ({children}) => {
       if (Array.isArray(error.response.data)) {
         return notify("error", error.response.data[0]);
       }
-      return notify("error",error.response.data.message);
+      return notify("error", error.response.data.message);
     }
   }
 
@@ -82,7 +82,7 @@ export const AuthProvider = ({children}) => {
       try {
         const res = await verifyTokenRequest(cookies.token); //Si hay token en las cookies, se manda al back para verificar que sea valido
         if (!res.data) {  //Si no es valido, no está autenticado
-          setIsAuthenticated(false); 
+          setIsAuthenticated(false);
           setLoading(false); //ya no esta cargando porque ya se verifico que no hay token
           return;
         }
@@ -100,31 +100,31 @@ export const AuthProvider = ({children}) => {
     checkLogin();
   }, [])
 
-      //Dependiendo del tipo de notificacion que le pasamos muestra un una u otra, de de error o de success.
-      const notify = (tipo, mensaje) => {
-        console.log(tipo)
-        if (tipo === "success") {
-          toast.success(mensaje)
-        }
-    
-        if (tipo === "error") {
-          toast.error(mensaje)
-        }
-      }
-  
+  //Dependiendo del tipo de notificacion que le pasamos muestra un una u otra, de de error o de success.
+  const notify = (tipo, mensaje) => {
+    console.log(tipo)
+    if (tipo === "success") {
+      toast.success(mensaje)
+    }
+
+    if (tipo === "error") {
+      toast.error(mensaje)
+    }
+  }
+
 
   return (
-    <AuthContext.Provider 
-    value={{ 
-      signup,
-      signin,
-      loading ,
-      user,
-      isAuthenticated,
-      errors,
-      logout
+    <AuthContext.Provider
+      value={{
+        signup,
+        signin,
+        loading,
+        user,
+        isAuthenticated,
+        errors,
+        logout
       }}>
-      { children }
+      {children}
     </AuthContext.Provider>
   )
 }
