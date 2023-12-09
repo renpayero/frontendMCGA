@@ -28,7 +28,7 @@ const App = () => {
                 <Route path="/add-product" element={<ProductFormPage />} />
               </Route>
             </Routes>
-            <footer>
+            <footer className='footer'>
               <div className="footer-content">
                 <div className="about-us">
                   <h2>Sobre nosotros</h2>

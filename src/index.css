@@ -15,7 +15,7 @@ h1 {
   font-weight: bold;
 }
 
-footer{
+.footer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,17 +30,17 @@ footer{
   font-weight: 600;
 }
 
-footer a{
+.footer a {
   text-decoration: none;
   color: #ffffff;
   text-shadow: 2px 2px 2px #000000;
 }
 
-footer a:hover{
+.footer a:hover {
   color: #0087E4;
 }
 
-footer h2{
+.footer h2 {
   color: #0087E4;
   font-size: 1.8rem;
   font-weight: 1000;
