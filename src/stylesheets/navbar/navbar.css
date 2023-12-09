@@ -2,6 +2,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
   height: 4rem;
   padding: 1rem 2rem;
   background: #939393;
@@ -40,7 +41,7 @@ nav a:hover {
   color: #0087E4;
 }
 
-nav a:hover::after {
+nav ul a:hover::after {
   content: "";
   width: 30%;
   height: 3px;

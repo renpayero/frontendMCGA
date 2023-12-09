@@ -14,7 +14,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const ProductsPage = () => {
   const { getProducts, products, updateProduct } = useProducts();
-  const { register, handleSubmit, setValue } = useForm();
+  const { register, handleSubmit, setValue, formState: { errors }, } = useForm();
   const [modal, setModal] = useState(false);
   const [mostrarFooter, setMostrarFooter] = useState(true); //hace que no se muestren los botones(eliminar,editar) de la card en este componente y si en el de la ruta privada.
 
@@ -58,23 +58,37 @@ const ProductsPage = () => {
                   <div className="close">Close</div>
                 </button>
                 <div>
-                  <label htmlFor="">Nombre</label>
+                  <label htmlFor="nombre">Nombre</label>
+                  {errors.nombre && (
+                    <p className="errorsInputs">Nombre es requerido</p>
+                  )}
                   <input type="text" {...register("nombre", { required: true })} />
                 </div>
                 <div>
-                  <label htmlFor="">Precio</label>
+                  <label htmlFor="precio">Precio</label>
+                  {errors.precio && (
+                    <p className="errorsInputs">Precio es requerido</p>
+                  )}
                   <input type="number" {...register("precio", { required: true })} />
                 </div>
                 <div>
-                  <label htmlFor="">Stock</label>
+                  <label htmlFor="stock">Stock</label>
+                  {errors.stock && <p className="errorsInputs">Stock es requerido</p>}
                   <input type="number" {...register("stock", { required: true })} />
                 </div>
                 <div>
-                  <label htmlFor="">Descripción</label>
-                  <input type="text" {...register("descripcion", { required: true })} />
-                </div>
-                <div>
-                  <label htmlFor="">Categoría</label>
+                  <label htmlFor="descripcion">Descripción</label>
+                  {errors.descripcion && (
+                    <p className="errorsInputs">Descripcion es requerido</p>
+                  )}
+                  <input
+                    type="text"
+                    {...register("descripcion", { required: true })}
+                  />
+                  <label htmlFor="categoria">Categoría</label>
+                  {errors.categoria && (
+                    <p className="errorsInputs">Categoria es requerido</p>
+                  )}
                   <input type="text" {...register("categoria", { required: true })} />
                 </div>
                 <button className='btnForm' type='sumbit'>

@@ -27,7 +27,7 @@ const ProductCard = ({ product, setModal, completForm, mostrarFooter }) => {
           Precio: <span>${precio}</span>
         </p>
         <p>
-          Cantidad: <span>{stock}</span>
+          Stock: <span>{stock}</span>
         </p>
         <p>
           Descripcion: <span>{descripcion}</span>
@@ -83,7 +83,7 @@ const ProductCard = ({ product, setModal, completForm, mostrarFooter }) => {
                 ></path>
               </g>
             </svg>
-            <span className="lable">Edit</span>
+            <span className="lable">Editar</span>
           </button>
         </footer>
       )}
