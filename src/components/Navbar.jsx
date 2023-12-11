@@ -16,7 +16,7 @@ const Navbar = () => {
 
   return (
     <nav>
-      <Link to="/" className="link-img userNav"><img src="../../public/logo.png" alt="Logo"></img>
+      <Link to="/" className="link-img userNav"><img src="logo.png" alt="Logo"></img>
         {user && (
           <>
             <FontAwesomeIcon className="iconUserNav" icon={faCircleUser} /> <span className="userNameNav">{capitalizeFirstLetter(user.username)}</span>
