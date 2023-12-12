@@ -1,3 +1,10 @@
+.title {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
 .title-word {
   animation: color-animation 10s linear infinite;
   text-shadow: 2px 2px 2px #000000;

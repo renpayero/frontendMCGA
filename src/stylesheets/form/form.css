@@ -43,3 +43,9 @@
   font-weight: 600;
   width: 100%;
 }
+
+p a {
+  text-decoration: underline;
+  color: inherit;
+  font-weight: 600;
+}

@@ -79,3 +79,21 @@ nav h2 {
   height: 100%;
   border-radius: 0.5rem;
 }
+
+.navIcon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) { 
+  .navWord {
+    display: none;
+  }
+
+  .navIcon {
+    display: block;
+  }
+
+  .iconUserNav, .userNameNav {
+    display: none;
+  }
+}
