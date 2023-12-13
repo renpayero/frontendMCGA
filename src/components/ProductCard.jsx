@@ -1,7 +1,5 @@
 import React from "react";
 import { useProducts } from "../context/ProductsContext";
-
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const ProductCard = ({ product, setModal, completForm, mostrarFooter }) => {
