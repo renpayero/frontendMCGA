@@ -13,7 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const RegisterPage = () => {
 
-  const { register, handleSubmit, formState: { errors } } = useForm()
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const { signup, isAuthenticated, errors: registerErrors } = useAuth();
 
   const navigate = useNavigate();

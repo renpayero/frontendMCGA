@@ -29,7 +29,6 @@ const LoginPage = () => {
 
   return (
     <div className='divForm'>
-
       <div>
         <Title word1="INICIAR" word2="SESIÓN"></Title>
         <form className='form' onSubmit={onSubmit}>

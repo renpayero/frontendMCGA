@@ -39,12 +39,11 @@ export function ProductsProvider({ children }) {
         try {
             const res = await deleteProductRequest(id);
             if (res.status === 200) {
-                const filterProducts = products.filter(product => product._id !== id) //Devuelve todos los productos menos el que mandamos al back a eliminar
+                const filterProducts = products.filter(product => product._id !== id); //Devuelve todos los productos menos el que mandamos al back a eliminar
                 setProducts(filterProducts);
                 return notify("success", "Producto eliminado correctamente");
             }
         } catch (error) {
-            console.log(error.response.data.message)
             return notify("error", error.response.data.message);
         }
     }
@@ -54,7 +53,6 @@ export function ProductsProvider({ children }) {
             const res = await updateProductRequest(id, product);
             const productUpdate = res.data;
             const productsUpdated = products.map(product => product._id === productUpdate._id ? productUpdate : product);
-            console.log(productsUpdated)
             setProducts(productsUpdated);
             return notify("success", "Producto actualizado correctamente");
         } catch (error) {
@@ -67,11 +65,11 @@ export function ProductsProvider({ children }) {
     const notify = (tipo, mensaje) => {
         console.log(tipo)
         if (tipo === "success") {
-            toast.success(mensaje)
+            toast.success(mensaje);
         }
 
         if (tipo === "error") {
-            toast.error(mensaje)
+            toast.error(mensaje);
         }
     }
 

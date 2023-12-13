@@ -10,5 +10,3 @@ export const deleteProductRequest = (id) => axios.delete(`/products/${id}`);
 
 export const getProductRequest = (id) => axios.get(`/products/${id}`, product);
 
-// export const getProductsByCategoryRequest = (category) => axios.get(`/products/category/${category}`);
-

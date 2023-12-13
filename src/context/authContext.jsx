@@ -26,12 +26,10 @@ export const AuthProvider = ({ children }) => {
   const signup = async (user) => {
     try {
       const res = await registerRequest(user);
-      console.log(res.data)
       setUser(res.data);
       setIsAuthenticated(true);
     } catch (error) {
       if (Array.isArray(error.response.data)) {
-        console.log(error)
         return notify("error", error.response.data[0]);
       }
       return notify("error", error.response.data.message);
@@ -102,13 +100,12 @@ export const AuthProvider = ({ children }) => {
 
   //Dependiendo del tipo de notificacion que le pasamos muestra un una u otra, de de error o de success.
   const notify = (tipo, mensaje) => {
-    console.log(tipo)
     if (tipo === "success") {
-      toast.success(mensaje)
+      toast.success(mensaje);
     }
 
     if (tipo === "error") {
-      toast.error(mensaje)
+      toast.error(mensaje);
     }
   }
 
