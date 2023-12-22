@@ -2,7 +2,7 @@ import axios from "axios";
 
 //Establecemos la propiedades a axios para comunicarnos con el backend accediendo a las cookies que nos manda.
 const instance = axios.create({
-  baseURL: "https://backendmcga-production.up.railway.app/api/",
+  baseURL: "http://localhost:3000/api/",
   withCredentials: true,
 });
 
